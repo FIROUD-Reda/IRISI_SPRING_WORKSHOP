@@ -9,9 +9,10 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
         ApplicationContext applicationContext =
-                new AnnotationConfigApplicationContext("org.example.Service","org.example.Dao");
+                new AnnotationConfigApplicationContext("org.example.Service","org.example.Dao","org.example.Aspects");
 //        Calculator calculatorByName= (Calculator) applicationContext.getBean("calculator");
         Calculator calculatorByName=  applicationContext.getBean(Calculator.class);
+//        System.out.println(calculatorByName.getClass().getName());
         System.out.println(calculatorByName.addNumberToMagicNumberFromDb(4));
     }
 }
