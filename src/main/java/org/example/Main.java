@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.Service.Interface.Calculator;
 import org.example.beans.Person;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
@@ -10,7 +11,11 @@ public class Main {
         System.out.println("Hello world!");
         ApplicationContext applicationContext =
                 new ClassPathXmlApplicationContext("config.xml");
-
+        Calculator calculatorByName= (Calculator) applicationContext.getBean("calculator");
+//        Calculator calculatorByClass= applicationContext.getBean(Calculator.class);
+        System.out.println(calculatorByName.addNumberToMagicNumberFromDb(4));
+//Scopes
+        /*
         Person personSingletonA = (Person) applicationContext.getBean("personSingleton");
         Person personSingletonB = (Person) applicationContext.getBean("personSingleton");
 
@@ -25,6 +30,7 @@ public class Main {
 
         System.out.println("a "+personSingletonA.getName());
         System.out.println("b "+personSingletonB.getName());
+*/
 
         ((AbstractApplicationContext) applicationContext).close();
     }

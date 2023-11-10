@@ -4,4 +4,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="personSingleton" class="org.example.beans.Person" scope="singleton"/>
 <!--    <bean id="personSingleton" class="org.example.beans.Person" scope="prototype"/>-->
+<bean id="d" class="org.example.Dao.Impl.SqlDao"></bean>
+<bean id="d2" class="org.example.Dao.Impl.NoSqlDao"></bean>
+    <bean id="calculator" class="org.example.Service.Impl.CalculatorImpl">
+<!--        <property name="dao" ref="d"></property>-->
+        <constructor-arg ref="d" />
+
+    </bean>
 </beans>
